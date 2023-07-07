@@ -1,0 +1,23 @@
+.about_Content {
+    text-align: center;
+    background: #e3f6e4;
+    
+    height: 200%;
+}
+
+
+.services__subtitle{
+    font-size: 3.5rem;
+    font-weight:bold ;
+    color: #134126;
+    font-family: var(--subtitle-font-name);
+}
+
+.services__title{
+    font-size: 2rem;
+    font-weight: 500;
+}
+.testimonial__title{
+    font-size: 2rem;
+    margin-top: 1rem;
+}
