@@ -24,14 +24,14 @@ exports.createReview = catchAsync(async (req, res, next) => {
 
     
     const existReview = await Review.findOne({productId: tourId,userId})
-    console.log(existReview)
+    // console.log(existReview)
 
     if (existReview) return next(new AppError("you already reviewed"))
 
 
     const savedReview = await newReview.save()
-    console.log(newReview)
-    console.log(savedReview)
+    // console.log(newReview)
+    // console.log(savedReview)
 
 
 

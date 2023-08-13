@@ -36,18 +36,17 @@ const Register = () => {
     const handleChange = event => {
         setCredentials(prev => ({ ...prev, [event.target.id]: event.target.value }))
 
-    }
+    } 
 
     const handleClick = async event => {
         event.preventDefault()
 
 
         try {
-            if(credentials.role === 'admin' && credentials.secretKey !== 'adminKey'){
+            if(credentials.role === 'admin' && credentials.secretKey !== 'admin'){
                 return alert('invaid admin')
             }
 
-            console.log(credentials)
             const res = await fetch(`${BASE_URL}/users/signup`, {
                 method: 'post',
                 body: JSON.stringify(credentials),
@@ -56,8 +55,6 @@ const Register = () => {
                 },
             });
             const result = await res.json();
-
-            console.log(result)
 
             if (!res.ok) {
                 return alert(result.message)
