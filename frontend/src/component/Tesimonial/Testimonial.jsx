@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useRef } from "react";
 import Slider from 'react-slick'
 import ava01 from '../../assets/images/ava-1.jpg'
 import ava02 from '../../assets/images/ava-2.jpg'
 import ava03 from '../../assets/images/ava-3.jpg'
+import { Button } from "reactstrap";
 
 const Testimonial = () => {
 
@@ -13,7 +14,7 @@ const Testimonial = () => {
         speed: 1000,
         swipeToSlide: true,
         autoplaySpeed: 4000,
-        slidesToShow: 1,
+        slidesToShow: 2,
         responsive: [
             {
                 breakPoints: 992,
@@ -27,16 +28,25 @@ const Testimonial = () => {
             {
                 breakPoints: 576,
                 settings: {
-                    slidesToShow: 1,
+                    slidesToShow: 2,
                     slidesTosScroll: 1,
                 },
             }
         ]
     }
 
+    let slider;
 
+    const goToPrev = () => {
+      slider.slickPrev(); // Corrected from "slickPrev"
+    };
+  
+    const goToNext = () => {
+      slider.slickNext(); // Corrected from "slickNext"
+    };
     return (
-        <Slider {...settings}>
+        <>
+        <Slider ref={c => (slider = c)} {...settings}>
             <div className="testimonial py-4 px-3">
                 <div className="d-flex align-items-center gap-4 mt-3">
                     <img src={ava01} className="w-25 h-25 rounded-2" alt="" />
@@ -106,6 +116,10 @@ const Testimonial = () => {
             </div>
 
         </Slider>
+        <Button onClick={goToPrev} className="btn primary__btn">Previous</Button>
+        <Button onClick={goToNext} className="btn primary__btn">Next</Button>
+        </>
+        
     )
 }
 
