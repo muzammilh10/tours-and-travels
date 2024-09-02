@@ -65,7 +65,7 @@ const Booking = ({ props, avgRating }) => {
             order_id: data.id,
             handler: async (response) => {
                 try {
-                    const verifyUrl = 'http://localhost:5000/api/payment/verify';
+                    const verifyUrl = `${BASE_URL}/payment/verify`;
                     const { data } = await axios.post(verifyUrl, response);
                     alert(data.message)
 
@@ -117,7 +117,7 @@ const Booking = ({ props, avgRating }) => {
                 return alert('Please sign in')
             }
 
-            const orderUrl = 'http://localhost:5000/api/payment/orders';
+            const orderUrl = `${BASE_URL}/payment/orders`;
             const { data } = await axios.post(orderUrl, { amount: booking.totalAmount });
             console.log(data.data)
             initPayment(data.data)

@@ -27,7 +27,7 @@ app.use('/api/v1/tours',tourRouter)
 app.use('/api/v1/users',userRouter)
 app.use('/api/v1/review',reviewRouter)
 app.use('/api/v1/booking',bookingRouter)
-app.use('/api/payment/',paymentRoute)
+app.use('/api/v1/payment/',paymentRoute)
 app.use('/',(req,res) => {
   res.json('hellloooooooo')
 })
