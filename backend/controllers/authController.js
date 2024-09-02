@@ -35,22 +35,26 @@ exports.signup = catchAsync(async (req, res, next) => {
   // console.log(existMail)
 
   if (existMail) return next(new AppError("email already exists"))
-  
-  const newUser = await User.create({
+
+  await User.create({
     username: req.body.username,
     email: req.body.email,
     password: req.body.password,
     passwordConfirm: req.body.passwordConfirm,
     photo: req.body.photo,
-    role:req.body.role,
+    role: req.body.role,
   })
-  await Email({
-    email: newUser.email,
-    password: req.body.password,
-    name: newUser.username,
-  });
+  // await Email({
+  //   email: newUser.email,
+  //   password: req.body.password,
+  //   name: newUser.username,
+  // });
 
-  createSendToken(newUser, 201, res)
+  console.log("successFully created")
+  res.status(200).json({
+    status: 'success',
+    message: 'Successfully created'
+  });  
 });
 
 
