@@ -24,11 +24,11 @@ jobs:
     - name: Install dependencies and build backend
       run: |
         cd backend
-        yarn install
-        yarn build
+        npm install
+        npm run build
 
     - name: Install dependencies and build frontend
       run: |
         cd frontend
-        yarn install
-        yarn build
+        npm install
+        npm run build
