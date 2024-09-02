@@ -1,4 +1,4 @@
-name: Animal Farm NodeJS CI
+name: tours-and-travels CI
 
 on:
   push:
@@ -14,12 +14,12 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3   # Updated to v3, which uses Node.js 16
+      uses: actions/checkout@v3   # Latest version, compatible with Node.js 20
 
     - name: Set up Node.js
-      uses: actions/setup-node@v3   # Updated to v3, which uses Node.js 16 by default
+      uses: actions/setup-node@v3   # Latest version, compatible with Node.js 20
       with:
-        node-version: '18.x'
+        node-version: '20.x'   # Explicitly specify Node.js 20
 
     - name: Install dependencies and build backend
       run: |
